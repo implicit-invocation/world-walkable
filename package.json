@@ -1,0 +1,22 @@
+{
+  "name": "world-walkable",
+  "version": "1.0.0",
+  "description": "walkable on latlng",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/implicit-invocation/world-walkable.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/implicit-invocation/world-walkable/issues"
+  },
+  "homepage": "https://github.com/implicit-invocation/world-walkable#readme",
+  "dependencies": {
+    "walkable": "^1.0.3"
+  }
+}
