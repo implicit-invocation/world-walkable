@@ -6,8 +6,16 @@ function getX(lng) {
   return (lng + 180) * (RECT_SIZE / 360);
 }
 
+function getLng(x) {
+  return x / (RECT_SIZE / 360) - 180;
+}
+
+function getLat(y) {
+  return (y / (RECT_SIZE / 180) - 90) * -1;
+}
+
 function getY(lat) {
-  return (lat * -1 + 90) * (deltaY / 180);
+  return (lat * -1 + 90) * (RECT_SIZE / 180);
 }
 
 function getVertices(latlngs) {
@@ -33,12 +41,23 @@ WorldWalkable.prototype.addPolyline = function(latlngs) {
   return this.walkable.addPolyline(vertices);
 };
 
+WorldWalkable.prototype.removeObstacle = function(obstacle) {
+  this.walkable.deleteObstacle(obstacle);
+};
+
 WorldWalkable.prototype.findPath = function(startLatlng, endLatlng) {
-  return this.walkable.findPath(
+  var path = this.walkable.findPath(
     getX(startLatlng[1]),
     getY(startLatlng[0]),
     getX(endLatlng[1]),
     getY(endLatlng[0]),
     0
   );
+  var pathLatLngs = [];
+  for (var i = 0; i < path.length; i += 2) {
+    var x = path[i];
+    var y = path[i + 1];
+    pathLatLngs.push([getLat(y), getLng(x)]);
+  }
+  return pathLatLngs;
 };
