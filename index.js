@@ -61,3 +61,5 @@ WorldWalkable.prototype.findPath = function(startLatlng, endLatlng) {
   }
   return pathLatLngs;
 };
+
+module.exports = WorldWalkable;
