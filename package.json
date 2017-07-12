@@ -1,6 +1,6 @@
 {
   "name": "world-walkable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "walkable on latlng",
   "main": "index.js",
   "scripts": {

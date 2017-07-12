@@ -11,7 +11,7 @@ npm install world-walkable --save
 
 ```Javascript
 var WorldWalkable = require('world-walkable');
-var worldWalkable = new WorldWalkable();
+var worldWalkable = new WorldWalkable([[minLat, minLng], [maxLat, maxLng]]);
 
 // add a polygon
 worldWalkable.addPolygon([[lat1, lng1], [lat2, lng2], [lat3, lng3]]);
@@ -23,5 +23,5 @@ var polyline = worldWalkable.addPolyline([[lat1, lng1], [lat2, lng2], [lat3, lng
 worldWalkable.removeObstacle(polyline);
 
 // find path
-var path = worldWalkable.findPath([lat1, lng1], [lat2, lng2]);
+var path = worldWalkable.findPath([lat1, lng1], [lat2, lng2], radius);
 ```
