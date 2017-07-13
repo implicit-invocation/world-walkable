@@ -84,10 +84,10 @@ WorldWalkable.prototype.removeObstacle = function(obstacle) {
 
 WorldWalkable.prototype.findPath = function(startLatlng, endLatlng, radius) {
   if (
-    startLatlng[0] > maxLat ||
-    startLatlng[0] < minLat ||
-    startLatlng[1] > maxLng ||
-    startLatlng[1] < minLng
+    startLatlng[0] > this.maxLat ||
+    startLatlng[0] < this.minLat ||
+    startLatlng[1] > this.maxLng ||
+    startLatlng[1] < this.minLng
   ) {
     return [];
   }
