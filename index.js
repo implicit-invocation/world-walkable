@@ -31,6 +31,8 @@ function WorldWalkable(bounds) {
 
   this.minLat = minLat;
   this.minLng = minLng;
+  this.maxLat = maxLat;
+  this.maxLng = maxLng;
   this.verticalScale = height / (maxLat - minLat);
   this.horizontalScale = width / (maxLng - minLng);
   this.walkable = new Walkable(width, height);
@@ -81,6 +83,14 @@ WorldWalkable.prototype.removeObstacle = function(obstacle) {
 };
 
 WorldWalkable.prototype.findPath = function(startLatlng, endLatlng, radius) {
+  if (
+    startLatlng[0] > maxLat ||
+    startLatlng[0] < minLat ||
+    startLatlng[1] > maxLng ||
+    startLatlng[1] < minLng
+  ) {
+    return [];
+  }
   var startXY = this.getXY(startLatlng[0], startLatlng[1]);
   var endXY = this.getXY(endLatlng[0], endLatlng[1]);
   var path = this.walkable.findPath(
